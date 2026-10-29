@@ -1,0 +1,349 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Aprenda a criar Reels animados com a sua voz usando IA, pelo celular, sem saber editar. 10 aulas.">
+<meta property="og:title" content="Reels no Piloto Automático">
+<meta property="og:description" content="Eu não sei editar vídeo. Meus Reels passaram de 2 milhões de views. Te mostro como em 10 aulas.">
+<meta property="og:image" content="capa_produto.png">
+<meta name="theme-color" content="#0B0B0D">
+<style>:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head><body>
+<title>Reels no Piloto Automático</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Anton&family=Figtree:wght@400;600;800&family=Kalam:wght@700&display=swap">
+<style>
+/* Layout: uma tela de Reels virada página. Fundo de cinema (o mesmo dos vídeos PRO), legenda com marca-texto amarelo, números grandes em amarelo, palavra-chave em vermelho. Prova primeiro, preço perto de cada botão. */
+:root{
+  --bg:#0B0B0D; --bg2:#141417; --line:rgba(255,255,255,.10); --fg:#F4F1EA; --soft:#A9A6A0;
+  --yel:#FFD84A; --red:#FF4B4B; --green:#3DDC84; --ink:#111;
+  --display:"Anton","Impact","Arial Narrow",sans-serif;
+  --body:"Figtree",system-ui,-apple-system,sans-serif;
+  --hand:"Kalam","Comic Sans MS",cursive;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:1.06rem;line-height:1.55;
+  background-image:radial-gradient(ellipse 80% 40% at 50% 0%,rgba(255,216,74,.10),transparent 70%)}
+.wrap{max-width:640px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:0 120px;display:flex;flex-direction:column;gap:72px}
+h1,h2,.num{font-family:var(--display);font-weight:400;letter-spacing:.01em;line-height:1.02;margin:0;text-wrap:balance;text-transform:uppercase}
+h1{font-size:clamp(2.5rem,11vw,4.1rem)}
+h2{font-size:clamp(1.9rem,8vw,2.8rem)}
+p{margin:0}
+.eyebrow{font-size:.8rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--soft)}
+.mk{background:var(--yel);color:var(--ink);padding:0 .12em;border-radius:3px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.kw{color:var(--red);text-shadow:0 0 22px rgba(255,75,75,.55)}
+.y{color:var(--yel)}
+.hand{font-family:var(--hand);color:var(--yel);font-size:1.15rem;line-height:1.2}
+
+/* faixa de oferta */
+.bar{background:var(--yel);color:var(--ink);text-align:center;font-weight:800;font-size:.9rem;padding:9px 12px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)))}
+
+/* hero */
+.hero{display:flex;flex-direction:column;gap:22px;padding-top:28px}
+.who{display:flex;align-items:center;gap:10px;font-weight:600;color:var(--soft);font-size:.95rem}
+.who b{color:var(--fg)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--red);box-shadow:0 0 10px var(--red)}
+.hero h1 .w{transition:background .25s,color .25s;border-radius:3px;padding:0 .06em}
+.hero h1 .w.on{background:var(--yel);color:var(--ink)}
+.sub{font-size:1.15rem;color:var(--soft);max-width:34ch}
+.sub b{color:var(--fg)}
+.stage{display:grid;grid-template-columns:minmax(0,1fr);justify-items:center;position:relative}
+.phone{width:min(300px,78vw);aspect-ratio:9/16;max-width:100%;border-radius:34px;border:8px solid #1d1d21;outline:1px solid var(--line);overflow:hidden;background:#000;box-shadow:0 30px 80px rgba(0,0,0,.6),0 0 60px rgba(255,216,74,.10)}
+.phone video{width:100%;height:100%;object-fit:cover;display:block}
+.note{position:absolute;right:max(0px,calc(50% - 250px));top:12%;transform:rotate(6deg);max-width:9ch;text-align:center}
+.note.l{left:max(0px,calc(50% - 250px));right:auto;top:auto;bottom:14%;transform:rotate(-6deg)}
+@media (max-width:520px){.note{display:none}}
+
+/* botão */
+.buy{display:flex;flex-direction:column;gap:8px}
+.cta{display:flex;flex-direction:column;align-items:center;gap:2px;text-decoration:none;background:var(--green);color:#06210f;border-radius:14px;padding:16px 18px;font-weight:800;font-size:1.2rem;text-align:center;box-shadow:0 8px 30px rgba(61,220,132,.30);transition:transform .12s}
+.cta small{font-weight:600;font-size:.85rem;opacity:.85}
+.cta:hover{transform:translateY(-2px)}
+.cta:active{transform:translateY(1px)}
+.cta:focus-visible{outline:3px solid var(--yel);outline-offset:3px}
+.trust{display:flex;flex-wrap:wrap;justify-content:center;gap:6px 16px;color:var(--soft);font-size:.88rem}
+.trust span::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--green);margin-right:6px;vertical-align:middle}
+
+/* números */
+.stats{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.stats div{background:var(--bg2);padding:18px 16px;min-width:0}
+.num{font-size:clamp(2.2rem,10vw,3rem);color:var(--yel);text-shadow:0 0 24px rgba(255,216,74,.25)}
+.stats p{color:var(--soft);font-size:.92rem;line-height:1.3}
+.src{color:var(--soft);font-size:.8rem;text-align:center}
+
+/* seção */
+section{display:flex;flex-direction:column;gap:20px}
+
+/* vitrine */
+.reel{display:grid;grid-auto-flow:column;grid-auto-columns:46%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
+@media (min-width:600px){.reel{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-auto-columns:auto;margin-inline:0;padding-inline:0;overflow:visible}}
+.reel figure{margin:0;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px}
+.reel img{width:100%;aspect-ratio:9/16;object-fit:cover;border-radius:12px;border:1px solid var(--line);display:block;background:var(--bg2)}
+.reel figcaption{font-size:.85rem;color:var(--soft);line-height:1.3}
+.reel figcaption b{color:var(--fg);display:block}
+
+/* antes x depois */
+.vs{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.vs > div{padding:14px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.vs .old{background:var(--bg2);color:var(--soft)}
+.vs .new{background:rgba(61,220,132,.07)}
+.vs h3{margin:0;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase}
+.vs .old h3{color:var(--red)}
+.vs .new h3{color:var(--green)}
+.vs p{font-size:.95rem;line-height:1.35}
+.vs .old p{text-decoration:line-through;text-decoration-color:rgba(255,75,75,.6)}
+
+/* passos */
+.steps{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:0;counter-reset:s}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);counter-increment:s}
+.steps li::before{content:counter(s);font-family:var(--display);font-size:2.4rem;line-height:1;color:var(--yel)}
+.steps b{display:block;font-size:1.1rem}
+.steps p{color:var(--soft);font-size:.98rem}
+
+/* vsl */
+.vsl{width:min(320px,100%);aspect-ratio:9/16;max-width:100%;margin:0 auto;display:block;border-radius:16px;border:1px solid var(--line);background:#000}
+
+/* aulas */
+.aulas{list-style:none;margin:0;padding:0;display:grid;gap:8px}
+.aulas li{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:baseline;background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:12px 14px}
+.aulas .n{font-family:var(--display);color:var(--yel);font-size:1.2rem;font-variant-numeric:tabular-nums;min-width:2ch}
+.aulas span{min-width:0}
+.aulas small{display:block;color:var(--soft);font-size:.88rem}
+.aulas .bonus{border-color:rgba(255,216,74,.45)}
+
+/* pra quem */
+.fit{display:grid;gap:12px}
+.fit ul{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px}
+.fit li{padding-left:28px;position:relative}
+.fit li::before{position:absolute;left:0;top:.05em;font-weight:800}
+.fit .yes li::before{content:"+";color:var(--green);font-size:1.2rem}
+.fit .no li::before{content:"x";color:var(--red)}
+.fit .no{color:var(--soft)}
+.fit h3{margin:0 0 4px;font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--soft)}
+
+/* oferta */
+.offer{border:2px solid var(--yel);border-radius:20px;padding:24px 20px;display:flex;flex-direction:column;gap:16px;background:linear-gradient(180deg,rgba(255,216,74,.08),transparent 60%)}
+.stack{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px}
+.stack li{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed var(--line);padding-bottom:10px}
+.stack li span:last-child{color:var(--soft);white-space:nowrap}
+.price{display:flex;flex-direction:column;align-items:center;gap:2px;text-align:center}
+.price .de{color:var(--soft)}
+.price .de s{text-decoration-color:var(--red);text-decoration-thickness:2px}
+.price .big{font-family:var(--display);font-size:clamp(4rem,20vw,5.6rem);line-height:1;color:var(--yel)}
+.price .big small{font-size:.4em}
+.price .parc{color:var(--fg);font-weight:600}
+.price .ate{color:var(--red);font-weight:800;font-size:.95rem}
+.guar{display:grid;grid-template-columns:64px 1fr;gap:14px;align-items:center}
+.seal{width:64px;height:64px;border-radius:50%;border:2px solid var(--green);display:grid;place-items:center;text-align:center;font-family:var(--display);color:var(--green);font-size:1.5rem;line-height:.9}
+.seal small{display:block;font-size:.45em;font-family:var(--body);font-weight:800;letter-spacing:.08em}
+.guar p{font-size:.95rem;color:var(--soft)}
+.guar b{color:var(--fg)}
+
+/* sobre */
+.about{display:flex;flex-direction:column;gap:12px;border-left:3px solid var(--red);padding-left:16px}
+.about p{color:var(--soft)}
+.about b{color:var(--fg)}
+
+/* faq */
+.faq details{border-bottom:1px solid var(--line);padding:14px 0}
+.faq summary{cursor:pointer;font-weight:800;font-size:1.05rem;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::after{content:"+";color:var(--yel);font-size:1.3rem;line-height:1}
+.faq details[open] summary::after{content:"-"}
+.faq summary:focus-visible{outline:2px solid var(--yel);outline-offset:4px}
+.faq p{margin-top:8px;color:var(--soft)}
+
+footer{text-align:center;color:var(--soft);font-size:.85rem;display:flex;flex-direction:column;gap:4px}
+
+/* barra fixa no celular */
+.sticky{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(11,11,13,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);
+  padding:10px max(16px,env(safe-area-inset-right,0px)) calc(10px + env(safe-area-inset-bottom,0px)) max(16px,env(safe-area-inset-left,0px));display:flex;align-items:center;gap:12px;transform:translateY(110%);transition:transform .25s}
+.sticky.show{transform:none}
+.sticky .p{flex:1;min-width:0;line-height:1.2}
+.sticky .p b{font-family:var(--display);font-size:1.5rem;color:var(--yel);font-weight:400}
+.sticky .p small{display:block;color:var(--soft);font-size:.78rem}
+.sticky a{background:var(--green);color:#06210f;text-decoration:none;font-weight:800;border-radius:12px;padding:12px 18px;white-space:nowrap}
+@media (prefers-reduced-motion:reduce){.cta,.sticky,.hero h1 .w{transition:none}}
+</style>
+
+<div class="wrap">
+  <div class="bar">Oferta de lançamento: R$ 47 só até 03/11. Depois, R$ 97.</div>
+
+  <header class="hero">
+    <div class="who"><span class="dot"></span><span><b>@antomneto</b> · técnico de celular há 12 anos, não editor de vídeo</span></div>
+    <h1 id="h1">Eu não sei editar vídeo. Meus Reels passaram de <span class="y">2 milhões</span> de views.</h1>
+    <p class="sub">Roteiro, animação, legenda, trilha e até a <b>minha voz</b>: tudo feito com IA, sem abrir programa de edição. Em 10 aulas curtas eu te mostro exatamente como.</p>
+
+    <div class="stage">
+      <div class="phone"><video src="img/loop.mp4" autoplay muted loop playsinline preload="auto" aria-label="Trecho de um Reel feito com o método"></video></div>
+      <p class="hand note">feito 100% com IA</p>
+      <p class="hand note l">a voz é minha, clonada</p>
+    </div>
+
+    <div class="buy">
+      <a class="cta js-checkout" href="https://pay.kiwify.com.br/y1V107X">Quero aprender agora<small>R$ 47 à vista ou 11x de R$ 5,22</small></a>
+      <div class="trust"><span>Acesso na hora</span><span>Garantia de 7 dias</span><span>Pix ou cartão</span></div>
+    </div>
+  </header>
+
+  <section aria-label="Resultados">
+    <div class="stats">
+      <div><span class="num">+2 mi</span><p>de visualizações nos Reels da série</p></div>
+      <div><span class="num">+21 mil</span><p>seguidores novos em 72 horas</p></div>
+      <div><span class="num">0</span><p>programas de edição abertos</p></div>
+      <div><span class="num">1</span><p>celular e duas IAs: Claude e ElevenLabs</p></div>
+    </div>
+    <p class="src">Números do meu perfil @antomneto, out/2026.</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">Feitos com o método</span>
+    <h2>Esses vídeos <span class="mk">ninguém editou</span></h2>
+    <div class="reel">
+      <figure><img src="img/v1.webp" alt="Reel estilo cinema, fundo preto com dinheiro 3D e valor em amarelo" loading="lazy"><figcaption><b>Estilo cinema</b>texto animado e objetos 3D</figcaption></figure>
+      <figure><img src="img/v3.webp" alt="Reel estilo quadro de cortiça com cards de bolsa e dólar" loading="lazy"><figcaption><b>Quadro de cortiça</b>notícia explicada em cards</figcaption></figure>
+      <figure><img src="img/v4.webp" alt="Reel com lista desenhada à mão e carimbo" loading="lazy"><figcaption><b>Lista desenhada</b>com carimbo e marca-texto</figcaption></figure>
+      <figure><img src="img/v5.webp" alt="Reel com mapa do Brasil colorido por região" loading="lazy"><figcaption><b>Mapas e dados</b>números que se explicam</figcaption></figure>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">O que muda</span>
+    <h2>Do jeito difícil pro <span class="kw">piloto automático</span></h2>
+    <div class="vs">
+      <div class="old"><h3>Antes</h3><p>Horas no CapCut cortando e sincronizando</p><p>Gravar a voz de novo a cada erro</p><p>Digitar legenda palavra por palavra</p><p>Travar na hora de escrever o roteiro</p></div>
+      <div class="new"><h3>Com IA</h3><p>Você descreve o vídeo, a IA monta</p><p>Sua voz clonada lê o roteiro</p><p>Legenda animada sai pronta</p><p>A IA pesquisa e escreve com você</p></div>
+    </div>
+  </section>
+
+  <section>
+    <span class="eyebrow">Como funciona</span>
+    <h2>3 passos, pelo celular</h2>
+    <ol class="steps">
+      <li><div><b>Você conta a ideia</b><p>Um assunto, um produto, um serviço. Do jeito que você fala.</p></div></li>
+      <li><div><b>A IA faz o vídeo</b><p>Escreve o roteiro, narra com a sua voz, anima e coloca legenda e trilha.</p></div></li>
+      <li><div><b>Você ajusta e posta</b><p>Pede mudanças como um diretor, até ficar do seu jeito.</p></div></li>
+    </ol>
+  </section>
+
+  <section>
+    <span class="eyebrow">Assista em 49 segundos</span>
+    <h2>Como eu faço os meus</h2>
+    <video class="vsl" src="video_vendas.mp4" poster="capa_produto.png" controls playsinline preload="none" aria-label="Vídeo de apresentação do curso"></video>
+  </section>
+
+  <section>
+    <span class="eyebrow">O que tem dentro</span>
+    <h2>10 aulas, todas liberadas no 1º acesso</h2>
+    <ul class="aulas">
+      <li><span class="n">01</span><span>O que a IA já faz por você</span></li>
+      <li><span class="n">02</span><span>As ferramentas e quanto custa cada vídeo</span></li>
+      <li><span class="n">03</span><span>Claude no celular<small>conta, plano e limites de uso</small></span></li>
+      <li><span class="n">04</span><span>Narração com ElevenLabs<small>começando com uma voz pronta</small></span></li>
+      <li><span class="n">05</span><span>Conectando Claude + ElevenLabs</span></li>
+      <li><span class="n">06</span><span>Seu perfil de marca<small>o formulário que faz a IA entender você</small></span></li>
+      <li><span class="n">07</span><span>Estilos de vídeo<small>caderno desenhado, cinema, motion e outros</small></span></li>
+      <li><span class="n">08</span><span>Formato, duração e legenda</span></li>
+      <li><span class="n">09</span><span>Sua Skill<small>o Claude lembra da sua marca nos próximos vídeos</small></span></li>
+      <li class="bonus"><span class="n">10</span><span>Bônus: clone a SUA voz</span></li>
+    </ul>
+  </section>
+
+  <section class="fit">
+    <span class="eyebrow">É pra você?</span>
+    <h2>Feito pra quem precisa aparecer</h2>
+    <div class="yes"><h3>É pra você se</h3><ul>
+      <li>Tem loja, presta serviço ou é profissional liberal e precisa postar</li>
+      <li>Quer explicar assuntos do momento pro seu público</li>
+      <li>Não tem tempo nem paciência pra editar</li>
+      <li>Tem vergonha de aparecer, mas topa usar a sua voz</li>
+    </ul></div>
+    <div class="no"><h3>Não é pra você se</h3><ul>
+      <li>Procura um botão mágico que posta sozinho sem você revisar</li>
+      <li>Não quer pagar as ferramentas de IA (explico o custo na Aula 2)</li>
+    </ul></div>
+  </section>
+
+  <section id="oferta">
+    <div class="offer">
+      <span class="eyebrow">Turma fundadora</span>
+      <ul class="stack">
+        <li><span>10 aulas em vídeo, liberadas na hora</span><span>incluso</span></li>
+        <li><span>Formulário de perfil de marca</span><span>incluso</span></li>
+        <li><span>Sua Skill pronta pro Claude lembrar de você</span><span>incluso</span></li>
+        <li><span>Aula bônus: clone a sua voz</span><span>incluso</span></li>
+      </ul>
+      <div class="price">
+        <span class="de">De <s>R$ 97</s> por</span>
+        <span class="big"><small>R$</small> 47</span>
+        <span class="parc">ou 11x de R$ 5,22</span>
+        <span class="ate">Preço de lançamento até 03/11</span>
+      </div>
+      <a class="cta js-checkout" href="https://pay.kiwify.com.br/y1V107X">Quero entrar na turma<small>Acesso imediato às 10 aulas</small></a>
+      <div class="guar"><div class="seal">7<small>DIAS</small></div><p><b>Risco zero.</b> Assistiu e não gostou? Pede o reembolso em até 7 dias, pela própria Kiwify, sem precisar explicar nada.</p></div>
+    </div>
+  </section>
+
+  <section class="about">
+    <span class="eyebrow">Quem ensina</span>
+    <h2>Antonio Marinho</h2>
+    <p>Sou de <b>Iporá-GO</b>, técnico de celular há mais de 12 anos e desenvolvedor. Nunca fui editor de vídeo.</p>
+    <p>Em outubro de 2026 comecei uma série explicando a eleição com fatos. Todos os vídeos foram feitos com IA. Passaram de <b>2 milhões de visualizações</b> e trouxeram <b>mais de 21 mil seguidores em 72 horas</b>. Esse curso é o passo a passo exato que eu uso.</p>
+  </section>
+
+  <section class="faq">
+    <span class="eyebrow">Dúvidas</span>
+    <h2>Perguntas rápidas</h2>
+    <details><summary>Preciso saber editar vídeo?</summary><p>Não. A IA faz a edição. Você explica o que quer e ajusta o resultado.</p></details>
+    <details><summary>Dá pra fazer tudo pelo celular?</summary><p>Sim. As aulas mostram o passo a passo pelo app no celular.</p></details>
+    <details><summary>As ferramentas são pagas?</summary><p>Sim, Claude e ElevenLabs são assinaturas à parte, em torno de R$ 240 por mês no plano inicial. Na Aula 2 eu mostro o custo real por vídeo, antes de você assinar qualquer coisa.</p></details>
+    <details><summary>Quanto tempo leva cada vídeo?</summary><p>Depende do vídeo. Você guia a IA como um diretor e pede ajustes. Não é um botão mágico, mas você não abre nenhum programa de edição.</p></details>
+    <details><summary>Serve pro meu nicho?</summary><p>Serve pra qualquer assunto que dá pra explicar: produto, serviço, notícia, dica. Na Aula 6 você ensina a IA a falar do seu jeito.</p></details>
+    <details><summary>E se eu não gostar?</summary><p>Você tem 7 dias de garantia. Pede o reembolso pela Kiwify e recebe o valor de volta.</p></details>
+  </section>
+
+  <div class="buy">
+    <a class="cta js-checkout" href="https://pay.kiwify.com.br/y1V107X">Quero aprender agora<small>R$ 47 só até 03/11</small></a>
+    <div class="trust"><span>Acesso na hora</span><span>Garantia de 7 dias</span><span>Pix ou cartão</span></div>
+  </div>
+
+  <footer><b>@antomneto</b><span>Reels no Piloto Automático · Sem vínculo oficial com Anthropic ou ElevenLabs.</span></footer>
+</div>
+
+<div class="sticky" id="sticky" aria-hidden="true">
+  <div class="p"><b>R$ 47</b><small>até 03/11 · garantia de 7 dias</small></div>
+  <a class="js-checkout" href="https://pay.kiwify.com.br/y1V107X" tabindex="-1">Quero entrar</a>
+</div>
+
+<script>
+  const CHECKOUT_URL = "https://pay.kiwify.com.br/y1V107X";
+  document.querySelectorAll(".js-checkout").forEach(a => { a.href = CHECKOUT_URL; a.target = "_blank"; a.rel = "noopener"; });
+
+  // título com marca-texto andando palavra por palavra, como a legenda dos Reels
+  (function () {
+    const h = document.getElementById("h1");
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const walk = n => { if (n.nodeType === 3) { const f = document.createDocumentFragment(); n.textContent.split(/(\s+)/).forEach(t => { if (!t.trim()) { f.appendChild(document.createTextNode(t)); return; } const s = document.createElement("span"); s.className = "w"; s.textContent = t; f.appendChild(s); }); n.replaceWith(f); } else [...n.childNodes].forEach(walk); };
+    [...h.childNodes].forEach(walk);
+    const ws = [...h.querySelectorAll(".w")];
+    if (reduce || !ws.length) return;
+    let i = 0;
+    const tick = () => { ws.forEach(w => w.classList.remove("on")); if (i < ws.length) { ws[i].classList.add("on"); i++; setTimeout(tick, 280); } else { i = 0; setTimeout(tick, 2600); } };
+    setTimeout(tick, 400);
+  })();
+
+  // barra de compra fixa aparece depois do primeiro botão
+  (function () {
+    const bar = document.getElementById("sticky");
+    const first = document.querySelector(".hero .cta");
+    const offer = document.getElementById("oferta");
+    if (!("IntersectionObserver" in window)) return;
+    let pastFirst = false, onOffer = false;
+    const upd = () => bar.classList.toggle("show", pastFirst && !onOffer);
+    new IntersectionObserver(e => { pastFirst = !e[0].isIntersecting && e[0].boundingClientRect.top < 0; upd(); }).observe(first);
+    new IntersectionObserver(e => { onOffer = e[0].isIntersecting; upd(); }).observe(offer);
+  })();
+</script>
+
+</body></html>
