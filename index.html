@@ -76,6 +76,13 @@ p{margin:0}
 /* seção */
 section{display:flex;flex-direction:column;gap:20px}
 
+/* prints */
+.proof{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media (max-width:520px){.proof{grid-template-columns:1fr}}
+.proof figure{margin:0;display:flex;flex-direction:column;gap:8px;min-width:0}
+.proof img{width:100%;border-radius:14px;border:1px solid var(--line);display:block}
+.proof figcaption{font-size:.85rem;color:var(--soft)}
+
 /* vitrine */
 .reel{display:grid;grid-auto-flow:column;grid-auto-columns:46%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:6px;margin-inline:calc(-1 * max(16px,env(safe-area-inset-left,0px)));padding-inline:max(16px,env(safe-area-inset-left,0px))}
 @media (min-width:600px){.reel{grid-auto-flow:row;grid-template-columns:repeat(4,1fr);grid-auto-columns:auto;margin-inline:0;padding-inline:0;overflow:visible}}
@@ -189,12 +196,21 @@ footer{text-align:center;color:var(--soft);font-size:.85rem;display:flex;flex-di
 
   <section aria-label="Resultados">
     <div class="stats">
-      <div><span class="num">+2 mi</span><p>de visualizações nos Reels da série</p></div>
-      <div><span class="num">+21 mil</span><p>seguidores novos em 72 horas</p></div>
+      <div><span class="num">+2,5 mi</span><p>de visualizações em 3 dias</p></div>
+      <div><span class="num">21,6 mil</span><p>seguidores, +198% em 7 dias</p></div>
+      <div><span class="num">1,3 mi</span><p>de views em um único Reel</p></div>
       <div><span class="num">0</span><p>programas de edição abertos</p></div>
-      <div><span class="num">1</span><p>celular e duas IAs: Claude e ElevenLabs</p></div>
     </div>
     <p class="src">Números do meu perfil @antomneto, out/2026.</p>
+  </section>
+
+  <section>
+    <span class="eyebrow">Print do meu Instagram</span>
+    <h2>Não é promessa, <span class="mk">é o painel</span></h2>
+    <div class="proof">
+      <figure><img src="img/prova_seguidores.webp" alt="Painel do Instagram: 21.639 seguidores, aumento de 198% em 7 dias" loading="lazy"><figcaption>Seguidores nos últimos 7 dias</figcaption></figure>
+      <figure><img src="img/prova_views.webp" alt="Painel do Instagram: Reels com 1,3 milhão, 387 mil e 280 mil visualizações" loading="lazy"><figcaption>Visualizações por Reel</figcaption></figure>
+    </div>
   </section>
 
   <section>
@@ -289,7 +305,7 @@ footer{text-align:center;color:var(--soft);font-size:.85rem;display:flex;flex-di
     <span class="eyebrow">Quem ensina</span>
     <h2>Antonio Marinho</h2>
     <p>Sou de <b>Iporá-GO</b>, técnico de celular há mais de 12 anos e desenvolvedor. Nunca fui editor de vídeo.</p>
-    <p>Em outubro de 2026 comecei uma série explicando a eleição com fatos. Todos os vídeos foram feitos com IA. Passaram de <b>2 milhões de visualizações</b> e trouxeram <b>mais de 21 mil seguidores em 72 horas</b>. Esse curso é o passo a passo exato que eu uso.</p>
+    <p>Em outubro de 2026 comecei uma série explicando a eleição com fatos. Todos os vídeos foram feitos com IA. Passaram de <b>2,5 milhões de visualizações em 3 dias</b> e o perfil chegou a <b>21,6 mil seguidores</b>, quase o triplo de uma semana antes. Esse curso é o passo a passo exato que eu uso.</p>
   </section>
 
   <section class="faq">
